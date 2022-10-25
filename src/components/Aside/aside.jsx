@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Category from "./category";
 import Rating from "./rating";
 import uuid from "react-uuid";
+import Price from "./price";
 
 const Aside = ({ prod }) => {
   const [categoryArray, setCategoryArray] = useState([]);
@@ -27,6 +28,8 @@ const Aside = ({ prod }) => {
       {ratingArray.map((item) => {
         return <Rating rates={item} key={uuid()} />;
       })}
+      <h4 className="mt-4">Price</h4>
+      <Price />
     </div>
   );
 };

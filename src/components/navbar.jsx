@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 const Navbar = ({ cardTotal }) => {
   return (
     <nav className="navbar fixed-top navbar-expand-lg fixed-top bg-light">
@@ -16,50 +17,46 @@ const Navbar = ({ cardTotal }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="home#">
+              <NavLink className="nav-link" aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="home#">
-                Link
-              </a>
+              <NavLink className="nav-link" aria-current="page" to="/jewelery">
+                Jewelery
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/electronics"
+              >
+                Electronics
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                href="home#"
+                to=""
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Gender
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="home#">
-                    Action
-                  </a>
+                  <Link className="dropdown-item" to="/women">
+                    Women's Clothings
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="home#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="home#">
-                    Something else here
-                  </a>
+                  <Link className="dropdown-item" to="/men">
+                    Men's Clothings
+                  </Link>
                 </li>
               </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="home#">
-                Disabled
-              </a>
             </li>
           </ul>
           <button className="btn btn-xl btn-success nav-cart">

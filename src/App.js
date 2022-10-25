@@ -1,38 +1,29 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Products from "./components/products";
+import React, { useState } from "react";
 import Navbar from "./components/navbar";
-import Aside from "./components/Aside/aside";
+
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Jewelery from "./pages/Jewelery";
+import Electronics from "./pages/Electronics";
+import Men from "./pages/Men";
+import Women from "./pages/Women";
+import ProductDetail from "./pages/ProductDetail";
+import NotFound from "./pages/NotFound";
+import { Navigate } from "react-router-dom";
 function App() {
   const [card, setCard] = useState([]);
-  const url = "https://fakestoreapi.com/products";
-  const [products, setProducts] = useState([]);
-  const getProducts = async () => {
-    const { data } = await axios(url);
-    setProducts(data);
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   return (
     <>
       <Navbar cardTotal={card.length} />
-      <div className="container">
-        <h1 className="text-center mt-3">Our Store</h1>
-        <Row>
-          <Col>
-            <Aside prod={products} />
-          </Col>
-          <Col xs={10}>
-            <Row className="g-3">
-              <Products prod={products} />
-            </Row>
-          </Col>
-        </Row>
-      </div>
+      <Routes>
+        <Route index path="/" element={<Home />} />
+        <Route path="/jewelery" element={<Jewelery />} />
+        <Route path="/electronics" element={<Electronics />} />
+        <Route path="/men" element={<Men />} />
+        <Route path="/women" element={<Women />} />
+        <Route path="/:id" element={<ProductDetail />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </>
   );
 }

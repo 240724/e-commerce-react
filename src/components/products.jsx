@@ -1,8 +1,9 @@
 import Button from "react-bootstrap/Button";
 import { Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Products = ({ prod }) => {
-  console.log(prod);
+  const navigate = useNavigate();
   return (
     <>
       {prod?.map((item) => {
@@ -26,7 +27,11 @@ const Products = ({ prod }) => {
               <Card.Text>{item.category}</Card.Text>
               <Card.Text>${item.price}</Card.Text>
               <div className="d-flex g-1 justify-content-evenly">
-                <Button variant="primary" className="text-center">
+                <Button
+                  variant="primary"
+                  className="text-center"
+                  onClick={() => navigate(`${item.id}`)}
+                >
                   Go Detail
                 </Button>
                 <Button variant="success" className="text-center">
