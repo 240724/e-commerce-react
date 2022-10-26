@@ -1,7 +1,12 @@
 import React from "react";
+import Contents from "../components/contents";
 
-const Men = () => {
-  return <div>Men</div>;
+const Men = ({ products }) => {
+  return (
+    <>
+      <Contents products={products} pageName="men's clothing" />
+    </>
+  );
 };
 
 export default Men;

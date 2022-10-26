@@ -15,7 +15,7 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <Products prod={product} card={true} />
+      <Products prod={product} detail />
     </div>
   );
 };

@@ -15,8 +15,8 @@ const Aside = ({ prod }) => {
         [...ratingArray, Math.floor(element.rating.rate)].sort((a, b) => a - b)
       );
   });
-  !categoryArray.includes("all") && setCategoryArray([...categoryArray, "all"]);
-  !ratingArray.includes("all") && setRatingArray([...ratingArray, "all"]);
+  // !categoryArray.includes("all") && setCategoryArray([...categoryArray, "all"]);
+  // !ratingArray.includes("all") && setRatingArray([...ratingArray, "all"]);
   return (
     <div>
       <h3>Filtered Menu</h3>
